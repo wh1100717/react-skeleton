@@ -1,7 +1,6 @@
 import 'babel/polyfill'
 import ReactDOM from 'react-dom'
 import FastClick from 'fastclick'
-import ActionTypes from './constants/ActionTypes'
 import Router from '../components/Router'
 import Location from '../utils/Location'
 import { addEventListener, removeEventListener } from '../utils/DOMUtils'
@@ -26,7 +25,7 @@ let context = {
   }
 }
 
-function render(state) {
+function render (state) {
   Router.dispatch(state, (_, component) => {
     ReactDOM.render(component, appContainer, () => {
       // Restore the scroll position if it was saved into the state
@@ -45,7 +44,7 @@ function render(state) {
   })
 }
 
-function run() {
+function run () {
   let currentLocation = null
   let currentState = null
 
@@ -69,10 +68,13 @@ function run() {
   var isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat')
   const setPageOffset = () => {
     currentLocation.state = currentLocation.state || Object.create(null)
-    currentLocation.state.scrollX = supportPageOffset ? window.pageXOffset : isCSS1Compat ?
-      document.documentElement.scrollLeft : document.body.scrollLeft
-    currentLocation.state.scrollY = supportPageOffset ? window.pageYOffset : isCSS1Compat ?
-      document.documentElement.scrollTop : document.body.scrollTop
+    if (supportPageOffset) {
+      currentLocation.state.scrollX = window.pageXOffset
+      currentLocation.state.scrollY = window.pageYOffset
+    } else {
+      currentLocation.state.scrollX = isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft
+      currentLocation.state.scrollY = isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
+    }
   }
 
   addEventListener(window, 'scroll', setPageOffset)

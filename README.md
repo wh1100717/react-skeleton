@@ -5,7 +5,8 @@
 ### Installation
 
 ```bash
-$ git clone https://github.com/wh1100717/react-skeleton.git && npm install
+$ git clone https://github.com/wh1100717/react-skeleton.git && cd react-skeleton
+$ npm install
 ```
 
 ### Usage

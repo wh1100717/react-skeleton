@@ -1,6 +1,5 @@
 import path from 'path'
 import webpack, { DefinePlugin, BannerPlugin } from 'webpack'
-import merge from 'lodash/object/merge'
 
 const DEBUG = !process.argv.includes('release')
 const WATCH = global.WATCH === undefined ? false : global.WATCH
@@ -90,7 +89,7 @@ const config = {
 // Configuration for the client-side bundle (app.js)
 // -----------------------------------------------------------------------------
 
-const appConfig = merge({}, config, {
+const appConfig = Object.assign({}, config, {
   entry: [
     ...(WATCH && ['webpack-hot-middleware/client']),
     './src/app/index.js'
@@ -102,7 +101,7 @@ const appConfig = merge({}, config, {
   devtool: DEBUG ? 'source-map' : false,
   plugins: [
     ...config.plugins,
-    new DefinePlugin(merge({}, GLOBALS, {'__SERVER__': false})),
+    new DefinePlugin(Object.assign({}, GLOBALS, {'__SERVER__': false})),
     ...(!DEBUG && [
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({compress: {warnings: VERBOSE}}),
@@ -124,7 +123,7 @@ const appConfig = merge({}, config, {
 // Configuration for the server-side bundle (server.js)
 // -----------------------------------------------------------------------------
 
-const serverConfig = merge({}, config, {
+const serverConfig = Object.assign({}, config, {
   entry: './src/server/index.js',
   output: {
     path: './build',
@@ -152,7 +151,7 @@ const serverConfig = merge({}, config, {
   devtool: DEBUG ? 'source-map' : 'cheap-module-source-map',
   plugins: [
     ...config.plugins,
-    new DefinePlugin(merge({}, GLOBALS, {'__SERVER__': true})),
+    new DefinePlugin(Object.assign({}, GLOBALS, {'__SERVER__': true})),
     new BannerPlugin('require("source-map-support").install()',
       { raw: true, entryOnly: false })
   ],

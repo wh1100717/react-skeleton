@@ -2,9 +2,6 @@ import React from 'react'
 import Router from 'react-routing/src/Router'
 import App from './App'
 import ContentPage from './ContentPage'
-import ContactPage from './ContactPage'
-import LoginPage from './LoginPage'
-import RegisterPage from './RegisterPage'
 import NotFoundPage from './NotFoundPage'
 import ErrorPage from './ErrorPage'
 import http from '../utils/HttpClient'
@@ -16,11 +13,11 @@ const router = new Router(on => {
     return component && <App context={state.context}>{component}</App>
   })
 
-  on('/contact', async () => <ContactPage />)
+  // on('/contact', async () => <ContactPage />)
 
-  on('/login', async () => <LoginPage />)
+  // on('/login', async () => <LoginPage />)
 
-  on('/register', async () => <RegisterPage />)
+  // on('/register', async () => <RegisterPage />)
 
   on('*', async (state) => {
     const content = await http.get(`/api/content?path=${state.path}`)

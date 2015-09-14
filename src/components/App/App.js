@@ -1,9 +1,7 @@
-
 import React, { PropTypes, Component } from 'react'
 import styles from './App.css'
-import Header from '../Header'
-import Feedback from '../Feedback'
-import Footer from '../Footer'
+import Notebook from '../Notebook'
+import Preview from '../Preview'
 import withContext from '../../utils/withContext'
 import withStyles from '../../utils/withStyles'
 
@@ -19,10 +17,9 @@ class App extends Component {
   render() {
     return !this.props.error ? (
       <div>
-        <Header />
-        {this.props.children}
-        <Feedback />
-        <Footer />
+        <Notebook />
+        {/*this.props.children*/}
+        <Preview />
       </div>
     ) : this.props.children
   }

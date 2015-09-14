@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react'
-import Location from '../../core/Location'
+import Location from '../../utils/Location'
 
 function isLeftClickEvent(event) {
   return event.button === 0

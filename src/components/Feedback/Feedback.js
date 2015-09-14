@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styles from './Feedback.css'
-import withStyles from '../../decorators/withStyles'
+import withStyles from '../../utils/withStyles'
 
 @withStyles(styles)
 class Feedback extends Component {

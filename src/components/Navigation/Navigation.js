@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react'
 import classNames from 'classnames'
 import styles from './Navigation.css'
-import withStyles from '../../decorators/withStyles'
 import Link from '../Link'
+import withStyles from '../../utils/withStyles'
 
 @withStyles(styles)
 class Navigation extends Component {

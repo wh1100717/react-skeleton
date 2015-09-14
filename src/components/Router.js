@@ -7,7 +7,7 @@ import LoginPage from './LoginPage'
 import RegisterPage from './RegisterPage'
 import NotFoundPage from './NotFoundPage'
 import ErrorPage from './ErrorPage'
-import http from '../core/HttpClient'
+import http from '../utils/HttpClient'
 
 const router = new Router(on => {
 

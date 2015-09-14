@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import styles from './Footer.css'
-import withViewport from '../../decorators/withViewport'
-import withStyles from '../../decorators/withStyles'
+import withViewport from '../../utils/withViewport'
+import withStyles from '../../utils/withStyles'
 import Link from '../Link'
 
 @withViewport

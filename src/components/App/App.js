@@ -1,10 +1,10 @@
 import React, { PropTypes, Component } from 'react'
 import styles from './App.css'
-import withContext from '../../decorators/withContext'
-import withStyles from '../../decorators/withStyles'
 import Header from '../Header'
 import Feedback from '../Feedback'
 import Footer from '../Footer'
+import withContext from '../../utils/withContext'
+import withStyles from '../../utils/withStyles'
 
 @withContext
 @withStyles(styles)

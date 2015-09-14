@@ -2,9 +2,8 @@ import 'babel/polyfill'
 import ReactDOM from 'react-dom'
 import FastClick from 'fastclick'
 import ActionTypes from './constants/ActionTypes'
-import Dispatcher from '../core/Dispatcher'
-import Location from '../core/Location'
 import Router from '../components/Router'
+import Location from '../utils/Location'
 import { addEventListener, removeEventListener } from '../utils/DOMUtils'
 
 let appContainer = document.getElementById('app')

@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
-import withStyles from '../../decorators/withStyles'
 import styles from './TextBox.css'
+import withStyles from '../../utils/withStyles'
 
 @withStyles(styles)
 class TextBox extends Component {

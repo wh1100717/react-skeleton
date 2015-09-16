@@ -1,0 +1,21 @@
+.toolbox {
+  height: 40px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  min-width: 650px;
+  background-color: #444;
+  box-shadow: 0 1px 1px rgba(0,0,0,.2);
+  position: relative;
+  z-index: 50;
+}
+.toollist {
+  margin: auto;
+}
+.item {
+  width: 40px;
+  display: inline-block;
+  list-style: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: rgb(187, 187, 187);
+}

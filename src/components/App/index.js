@@ -1,3 +1,6 @@
+import fontawesome from '../../lib/rfontawesome/index.less'
+
+
 import React, { PropTypes, Component } from 'react'
 import styles from './App.css'
 import Notebook from '../Notebook'
@@ -7,6 +10,7 @@ import withStyles from '../../utils/withStyles'
 
 @withContext
 @withStyles(styles)
+@withStyles(fontawesome)
 class App extends Component {
 
   static propTypes = {

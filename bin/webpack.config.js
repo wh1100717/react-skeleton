@@ -56,26 +56,46 @@ const config = {
   },
 
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      include: [
-        path.resolve(__dirname, '../node_modules/react-routing/src'),
-        path.resolve(__dirname, '../src')
-      ],
-      loaders: [...(WATCH && ['react-hot']), 'babel-loader']
-    }, {
-      test: /\.json$/,
-      loader: 'json-loader'
-    }, {
-      test: /\.txt$/,
-      loader: 'raw-loader'
-    }, {
-      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-      loader: 'url-loader?limit=10000'
-    }, {
-      test: /\.(eot|tft|wav|mp3)$/,
-      loader: 'file-loader'
-    }]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        include: [
+          path.resolve(__dirname, '../node_modules/react-routing/src'),
+          path.resolve(__dirname, '../src')
+        ],
+        loaders: [...(WATCH && ['react-hot']), 'babel-loader']
+      }, {
+        test: /\.less$/,   
+        loader: `${CSS_LOADER}!postcss-loader!less-loader`   
+      }, {
+        test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url?limit=10000&mimetype=application/font-woff'
+      }, {
+        test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url?limit=10000&mimetype=application/font-woff'
+      }, {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url?limit=10000&mimetype=application/octet-stream'
+      }, {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file'
+      }, {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url?limit=10000&mimetype=image/svg+xml'
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }, {
+        test: /\.txt$/,
+        loader: 'raw-loader'
+      }, {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        loader: 'url-loader?limit=10000'
+      }, {
+        test: /\.(tft|wav|mp3)$/,
+        loader: 'file-loader'
+      }
+    ]
   },
 
   postcss: [
